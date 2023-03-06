@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "PTUWDR08fzMQW/ZzB3VFWVhK2TN9nIixMGOam1X1JCxExpO+HDgfKBG0iX4ZdSriE4NdP6YCwPHgMiZQP9zCLg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Koheva_\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\hyperFocus\\hyperFocus.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Koheva_\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}

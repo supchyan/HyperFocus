@@ -1,0 +1,10 @@
+Have enough forces to fight using true melee? This mod is especially for you!
+Mod adds a powerful sword, that will grow its power while owner shows "Super Sexy Skills".
+This weapon has two different forms of damage. The first one is activated since you picked up the weapon.
+You can charge your weapon while holding it with no getting any damage or you can hit enemies to get the [c/00ffcb:Spirit Form].
+[c/00ffcb:Spirit Form]: Weapon does more damage while in Spirit Form. Getting damage resets the Spirit Form.
+Right click when in Spirit Form to do a dash through the enemies by splitting the space.
+Enemies after getting a hit receives a [c/c12120:Death Mark]. This mark will hit an enemies until it breaks.
+When [c/c12120:Death Mark] breaks, it explodes and does additional damage to owner. Also, it charges the Spirit Form.
+If [c/c12120:Death Mark] kills an enemy, it replenishes Spirit Form.
+[c/00cca2:So, you call this true melee, right?]

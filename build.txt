@@ -1,0 +1,4 @@
+displayName = Hyper Focus
+author = supchyan
+version = 1.0
+modReferences = TerrariaOverhaul
