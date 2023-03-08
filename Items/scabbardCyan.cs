@@ -99,7 +99,9 @@ namespace hyperFocus.Items {
                 
                 scabbard.cyanKatana = false;
             }
+
             Lighting.AddLight(Projectile.Center, 0, 0.8f, 0.8f);
+
         }
         int x = 0;
         public override bool PreDraw(ref Color lightColor) {

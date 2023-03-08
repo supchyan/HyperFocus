@@ -128,7 +128,23 @@ namespace hyperFocus.Items {
 		bool endOfBlinkSoundTrigger = false;
 		 
 		public override void UpdateInventory(Player player) {
-			
+
+		}
+		public override bool CanUseItem(Player player) {
+			if (dashCoolDown <= 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		public override bool AltFunctionUse(Player player) {
+			return true;
+		}
+		public override void HoldItem(Player player) {
+
+			playerClass.stacksBreaker = 0;
+						
 			t++;
 			invTimerAnimation++;
 			rageCharge++;
@@ -196,7 +212,7 @@ namespace hyperFocus.Items {
 				break;
 			}
 			
-			if (rageCharge >= chargedCounter) {
+			while (rageCharge >= chargedCounter) {
 				//var rageDust = Dust.NewDustDirect(player.Center, 0, 0, DustID.Clentaminator_Red, 0f, 0f, 255, default, 0.5f);
 				if (playerClass.stacksBreaker < 2 && !cyanKatana) {
 					Projectile.NewProjectile(Entity.GetSource_FromThis(), player.position + new Vector2(-40f, 6f), player.velocity, ModContent.ProjectileType<scabbardCyan>(), Item.damage, default, player.whoAmI);
@@ -204,9 +220,7 @@ namespace hyperFocus.Items {
 					//Main.NewText("КАТАНААА");
 				}
 				player.eocDash = int.MaxValue;
-			}
-			else {
-				player.eocDash = 0;
+				break;
 			}
 			if (rageCharge == chargedCounter && !rageIsReadySoundTrigger) {
 				SoundEngine.PlaySound(rageIsReady, player.position);
@@ -221,19 +235,10 @@ namespace hyperFocus.Items {
 				rageCharge = 0;
 			}
 		}
-		public override bool CanUseItem(Player player) {
-			if (dashCoolDown <= 0) {
-				return true;
-			}
-			else {
-				return false;
-			}
-		}
-		public override bool AltFunctionUse(Player player) {
-			return true;
-		}
-		public override void HoldItem(Player player) {
-			playerClass.stacksBreaker = 0;
+		public override void Update(ref float gravity, ref float maxFallSpeed) {
+			Main.LocalPlayer.eocDash = 0;
+			rageCharge = 0;
+			playerClass.stacksBreaker = 2;
 		}
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {		
 
@@ -294,6 +299,13 @@ namespace hyperFocus.Items {
 		public override void PostUpdate() {
 			stacksBreaker += 1;
 			//Main.NewText(stacksBreaker);
+			if (stacksBreaker >= 2) {
+				scabbard.rageCharge = 0;
+				
+			}
+			if (scabbard.rageCharge == 0) {
+				Main.LocalPlayer.eocDash = 0;
+			}
 		}
 		public override void Hurt (bool pvp, bool quiet, double damage, int hitDirection, bool crit, int cooldownCounter) {
 			
