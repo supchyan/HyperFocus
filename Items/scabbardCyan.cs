@@ -12,11 +12,12 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using System;
 using hyperFocus.Items;
-using hyperFocus.Effects;
 using ReLogic.Utilities;
 
 namespace hyperFocus.Items {
 	public class scabbardCyan : ModProjectile {
+
+        scabbard Scabbard = new scabbard();
 
         public static SlotId musicSlot;
         //SoundStyle rageMusic = new SoundStyle("hyperFocus/Sounds/rageMusic") {

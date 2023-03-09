@@ -13,7 +13,7 @@ using Terraria.GameContent;
 using System;
 
 namespace hyperFocus.Items {
-	public class shockWaveProjectile : ModProjectile {
+	public class blackAndWhiteProjectile : ModProjectile {
 
         public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Hyper Focus Blade");
@@ -58,9 +58,9 @@ namespace hyperFocus.Items {
 
             Projectile.ai[0]++;
             //Main.NewText(Projectile.ai[0]);
-            if (Projectile.ai[0] >= 20) {
+            if (Projectile.ai[0] >= 5) {
                 Projectile.Kill();
-                Filters.Scene["Shockwave"].Deactivate();
+                Filters.Scene["FilterMyShader"].Deactivate();
             }
 
             //Main.NewText(Projectile.ai[0]);
@@ -73,17 +73,17 @@ namespace hyperFocus.Items {
 
             AnimeProjectile();
 
-            if (Main.netMode != NetmodeID.Server && !Filters.Scene["Shockwave"].IsActive()) {
-                Filters.Scene.Activate("Shockwave", spawnPosition).GetShader().UseColor(rippleCount, rippleSize, rippleSpeed).UseTargetPosition(spawnPosition);
+            if (Main.netMode != NetmodeID.Server && !Filters.Scene["FilterMyShader"].IsActive()) {
+                Filters.Scene.Activate("FilterMyShader", spawnPosition).GetShader().UseColor(rippleCount, rippleSize, rippleSpeed).UseTargetPosition(spawnPosition);
             }
 
-            if (Main.netMode != NetmodeID.Server && Filters.Scene["Shockwave"].IsActive()) {
-                float progress = Projectile.ai[0]/20f;
-                Filters.Scene["Shockwave"].GetShader().UseProgress(progress).UseOpacity(distortStrength * (1 - progress));
+            if (Main.netMode != NetmodeID.Server && Filters.Scene["FilterMyShader"].IsActive()) {
+                float progress = Projectile.ai[0]/5f;
+                Filters.Scene["FilterMyShader"].GetShader().UseProgress(progress);
                 
             }
-            if (Projectile.ai[0] >= 20) {
-                Filters.Scene["Shockwave"].Deactivate();
+            if (Projectile.ai[0] >= 5) {
+                Filters.Scene["FilterMyShader"].Deactivate();
                 
             }
         }

@@ -9,13 +9,11 @@ using Terraria.GameContent;
 using ReLogic.Content;
 using Terraria.ModLoader;
 using System.Collections.Generic;
-
 using hyperFocus.Items.UIstuff;
 using ReLogic.Utilities;
 
 namespace hyperFocus.Items {
 	public class scabbard : ModItem {
-		//public SlotId? rageIsLost;	
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Hyper Focus");
 			Tooltip.SetDefault("This weapon has two different forms of damage. The first one is activated since you picked up the weapon." + 
@@ -55,6 +53,8 @@ namespace hyperFocus.Items {
 			Item.value = Item.sellPrice(gold: 5);
 			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(int.MaxValue, scabbardFrames));
 		}
+
+		
 		int inventoryAnimationFrames = 0;
 		int invTimerAnimation = 0;
 		public void AnimeInventoryItem() {
@@ -183,6 +183,7 @@ namespace hyperFocus.Items {
 				rageCharge = 0;
 				deathMarkerBrokenTrigger = true;
 
+				Projectile.NewProjectile(Entity.GetSource_FromThis(), player.Center, Vector2.Zero, ModContent.ProjectileType<blackAndWhiteProjectile>(), 0, 0, player.whoAmI);
 				Projectile.NewProjectile(Entity.GetSource_FromThis(), player.Center, Vector2.Zero, ModContent.ProjectileType<shockWaveProjectile>(), 0, 0, player.whoAmI);
 				Projectile.NewProjectile(Entity.GetSource_FromThis(), player.Center, Vector2.Zero, ModContent.ProjectileType<blinkAddMarkerProjectile>(), 1, 0, player.whoAmI);
 				//Projectile.NewProjectile(Entity.GetSource_FromThis(), player.position + new Vector2(-40f, 6f), player.velocity, ModContent.ProjectileType<scabbardGlowMask>(), Item.damage, default, player.whoAmI);
@@ -190,9 +191,7 @@ namespace hyperFocus.Items {
 				player.velocity = player.DirectionTo(Main.MouseWorld) * 75f;
 
 				SoundEngine.PlaySound(blinkSound, player.position);
-
 				
-
 			}
 			while (t <= 60) {
 				player.immune = true;
@@ -295,6 +294,9 @@ namespace hyperFocus.Items {
 		}
 	}
 	public class playerClass : ModPlayer {
+
+		//scabbard Scabbard = new scabbard();
+
 		public static int stacksBreaker = 0;
 		public override void PostUpdate() {
 			stacksBreaker += 1;

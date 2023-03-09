@@ -12,10 +12,11 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using System;
 using hyperFocus.Items;
-using hyperFocus.Effects;
 
 namespace hyperFocus.Items {
 	public class bladeHit1 : ModProjectile {
+
+        scabbard Scabbard = new scabbard();
 
         public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Hyper Focus Blade");

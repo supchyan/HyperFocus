@@ -14,6 +14,7 @@ using hyperFocus.Items;
 
 namespace hyperFocus.Systems {
     public class hyperFocusSystem : ModSystem {
+        scabbard Scabbard = new scabbard();
         public override void OnWorldLoad() {
             scabbard.cyanKatana = false;
             scabbard.rageCharge = 0;

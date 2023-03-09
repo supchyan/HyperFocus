@@ -14,6 +14,9 @@ using System;
 
 namespace hyperFocus.Items {
 	public class deathMarker : ModProjectile {
+
+        scabbard Scabbard = new scabbard();
+
         public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Death Marker");
 		}
