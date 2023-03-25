@@ -78,6 +78,8 @@ namespace hyperFocus.Items {
             //Projectile.damage = 0;
             SoundEngine.PlaySound(onHit);
             scabbard.rageCharge += 40;
+            if (!target.active)
+                scabbard.rageCharge = scabbard.chargedCounter;
         }
 	}
 }

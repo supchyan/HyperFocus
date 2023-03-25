@@ -1,4 +1,4 @@
-displayName = Hyper Focus
-author = supchyan
-version = 1.11
+displayName = [c/ff004e:Hyper] [c/00ffcb:Focus]
+author = Divine Blacksmith
+version = 1.12
 modReferences = TerrariaOverhaul

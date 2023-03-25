@@ -28,6 +28,7 @@ namespace hyperFocus.Items {
             //Projectile.damage = 0;
             Projectile.friendly = true;
 			Projectile.hostile = false;
+            Projectile.penetrate = -1;
 			Projectile.ignoreWater = true;
             Projectile.manualDirectionChange = true;   
             Projectile.netUpdate = true; 
@@ -85,7 +86,7 @@ namespace hyperFocus.Items {
             }
             if (Projectile.ai[0] == projLifeTime - 5) {
                 Projectile.CritChance = 100;
-                Projectile.damage = 4096;
+                Projectile.damage = 2048;
             }
             if (Projectile.ai[0] == projLifeTime - 4) {
                 Projectile.CritChance = 0;
@@ -97,12 +98,12 @@ namespace hyperFocus.Items {
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
             scabbard.rageCharge += 10;
-            Projectile.penetrate = 2;
+            Projectile.penetrate = -1;
             Projectile.velocity = target.velocity;
             Projectile.position = target.TopLeft;
             if (!target.active) {
                 Projectile.Kill();
-                scabbard.rageCharge += 3600;
+                scabbard.rageCharge += 1800;
             }
         }
     }

@@ -18,11 +18,10 @@ namespace hyperFocus.Items {
 			DisplayName.SetDefault("Hyper Focus");
 			Tooltip.SetDefault("This weapon has two different forms of damage. The first one is activated since you picked up the weapon." + 
 			"\nYou can charge your weapon while holding it with no getting any damage or you can hit enemies to get the [c/00ffcb:Spirit Form]." + 
-			"\n[c/00ffcb:Spirit Form]: Weapon does more damage while in [c/00ffcb:Spirit Form]. Getting damage resets the [c/00ffcb:Spirit Form]." +
+			"\n[c/00ffcb:Spirit Form]: Weapon does more damage while owner in the [c/00ffcb:Spirit Form]. Getting damage resets the [c/00ffcb:Spirit Form]." +
 			"\nRight click when in [c/00ffcb:Spirit Form] to do a dash through the enemies by splitting the space." +
-			"\nEnemies after getting a hit receives a [c/c12120:Death Mark]. This mark will hit an enemies until it breaks." +
-			"\nWhen [c/c12120:Death Mark] breaks, it explodes and does additional damage to owner. Also, it charges the [c/00ffcb:Spirit Form]." +
-			"\nIf [c/c12120:Death Mark] kills an enemy, it replenishes [c/00ffcb:Spirit Form]." +
+			"\nAfter getting a hit, enemies receives a [c/ff004e:Death Mark]. This mark will hit an enemies until it breaks." +
+			"\nWhen [c/ff004e:Death Mark] breaks, it explodes and does additional damage." +
 			"\n[c/00cca2:So, you call this true melee, right?]");
 		}
 		public override void ModifyTooltips(List<TooltipLine> tooltips) {
@@ -114,7 +113,7 @@ namespace hyperFocus.Items {
 		public static int t = 0;
 
 		public static int rageCharge = 0;
-		public static int chargedCounter = 3600; //this paramter says, how many hits or time player need to do before charged attacks and ult capability
+		public static int chargedCounter = 1800; //this paramter says, how many hits or time player need to do before charged attacks and ult capability
 		int dashCoolDown = 0;
 		public static int blinkDelay = 0;
 		int sparksTime = 0;
@@ -310,12 +309,13 @@ namespace hyperFocus.Items {
 			}
 		}
 		public override void Hurt (bool pvp, bool quiet, double damage, int hitDirection, bool crit, int cooldownCounter) {
-			
+			scabbard.rageCharge = 0;
+			if(Main.LocalPlayer.HeldItem.ModItem is not scabbard)
+				return;
 			scabbard.rageIsLost = new SoundStyle("hyperFocus/Sounds/rageIsLost") {
 			Volume = 1f
 			};
 			SoundEngine.PlaySound(scabbard.rageIsLost, Main.LocalPlayer.position);
-			scabbard.rageCharge = 0;
 		}
 	}
 }

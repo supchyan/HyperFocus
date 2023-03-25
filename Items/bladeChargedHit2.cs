@@ -32,7 +32,7 @@ namespace hyperFocus.Items {
             Projectile.friendly = true;
 			Projectile.hostile = false;
 			Projectile.ignoreWater = true;
-            //Projectile.penetrate = 2;
+            Projectile.penetrate = -1;
             Projectile.manualDirectionChange = true;   
             Projectile.netUpdate = true; 
             Projectile.tileCollide = false;
@@ -68,11 +68,11 @@ namespace hyperFocus.Items {
             }
 
             AnimeProjectile();
+            var dust = Dust.NewDustDirect(Main.LocalPlayer.Center, 0, 0, DustID.Vortex, 0f, -2f, 255, default, 0.5f);
         }
         SoundStyle onHit = new SoundStyle("hyperFocus/Sounds/onHit");
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-            Projectile.penetrate = 2;
-            Projectile.damage -=5;
+            Projectile.damage -= 8;
         }
 	}
 }
