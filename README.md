@@ -1,5 +1,5 @@
 # HyperFocus
-Mod that adds new sword in Terraria.
+whoosh whoosh motivation
 
 Craft: Warrior's emblem + Demon heart.
 
