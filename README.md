@@ -1,6 +1,6 @@
 # HyperFocus
 whoosh whoosh motivation
 
-Craft: Warrior's emblem + Demon heart.
+Craft: Check steam workshop page.
 
 I still didn't released capability for multiplayer, SORRRY ;---;
